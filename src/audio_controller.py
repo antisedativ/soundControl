@@ -16,7 +16,7 @@ class AudioController:
 
     def get_interface(self):
         for session in self.sessions:
-            if session.Process and session.Process.name() == self.process_name:
+            if session.ProcessId and session.Process.name() == self.process_name:
                 return session.SimpleAudioVolume
             
 
