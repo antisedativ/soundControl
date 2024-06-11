@@ -1,10 +1,10 @@
-import src.mute as mute
+import sys
+import os
 
-def main():
-    PROGRAM = 'chrome.exe'
-    print("Starting...")
-    print(f"Current program: {PROGRAM}")
-    mute.start(PROGRAM)
+# Добавляем путь к корневой директории проекта в sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from gui import start_gui
 
 if __name__ == "__main__":
-    main()
+    start_gui()

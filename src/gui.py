@@ -1,0 +1,15 @@
+import tkinter as tk
+from tkinter import ttk
+from gui_utils.setup_window import SetupWindow
+from gui_utils.running_window import RunningWindow
+
+def start_gui():
+    root = tk.Tk()
+    root.title("Sound Control")
+    root.geometry("600x300")  # Установить размер окна
+
+    setup_window = SetupWindow(root, None)
+    running_window = RunningWindow(root, setup_window.setup_frame)
+    setup_window.running_window = running_window
+    
+    root.mainloop()
