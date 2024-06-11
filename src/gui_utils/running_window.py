@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from src.key_listener import KeyListener
+from key_listener import KeyListener
 from gui_utils.constants import *
 
 class RunningWindow:

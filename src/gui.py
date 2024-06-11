@@ -7,7 +7,7 @@ def start_gui():
     root = tk.Tk()
     root.title(TITLE)
     root.geometry(SIZE)
-    root.iconbitmap('./assets/icon.ico')
+    root.iconbitmap('../assets/icon.ico')
 
     setup_window = SetupWindow(root, None)
     running_window = RunningWindow(root, setup_window.setup_frame)

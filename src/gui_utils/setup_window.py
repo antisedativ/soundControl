@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
-from src.key_capture_entry import KeyCaptureEntry
-from src.audio_controller import AudioController
+from key_capture_entry import KeyCaptureEntry
+from audio_controller import AudioController
 from tkinter import messagebox
 from gui_utils.constants import *
 
