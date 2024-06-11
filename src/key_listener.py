@@ -1,6 +1,5 @@
 from pynput import keyboard
 from audio_controller import AudioController
-import threading
 
 def start_listener(target: str, mute_key, unmute_key):
     KEY_ACTIONS = {mute_key: True, unmute_key: False}

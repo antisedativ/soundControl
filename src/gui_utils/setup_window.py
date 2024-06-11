@@ -2,36 +2,40 @@ import tkinter as tk
 from tkinter import ttk
 from src.key_capture_entry import KeyCaptureEntry
 from tkinter import messagebox
+from gui_utils.constants import *
 
 class SetupWindow:
     def __init__(self, root, running_window):
         self.root = root
         self.running_window = running_window
-        self.setup_frame = ttk.Frame(self.root, padding="20")
-        self.setup_frame.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
+        self.setup_frame = ttk.Frame(self.root, padding=PADDING_LARGE, style="Dark.TFrame")
+        self.setup_frame.pack(padx=PADDING_MEDIUM, pady=PADDING_MEDIUM, fill=tk.BOTH, expand=True)
+        self.setup_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+        self.root.config(bg=BG_COLOR)
 
         style = ttk.Style()
-        style.configure("TButton", font=("Segoe UI", 12), padding=10)
-        style.configure("TLabel", font=("Segoe UI", 12))
-        style.configure("TEntry", font=("Segoe UI", 12))
+        style.configure("Dark.TFrame", background=BG_COLOR)
+        style.configure(BUTTON_STYLE, font=(FONT_FAMILY, FONT_SIZE), padding=PADDING_LARGE, background=BG_COLOR, foreground=BLACK_COLOR)
+        style.configure(LABEL_STYLE, font=(FONT_FAMILY, FONT_SIZE), foreground=WHITE_COLOR, background=BG_COLOR)
+        style.configure(ENTRY_STYLE, font=(FONT_FAMILY, FONT_SIZE), background=INPUT_BG_COLOR, foreground=BLACK_COLOR)
 
-        ttk.Label(self.setup_frame, text="Program:", font=("Segoe UI", 14)).grid(row=0, column=0, padx=10, pady=5, sticky=tk.W)
-        self.entry_program = ttk.Entry(self.setup_frame, font=("Segoe UI", 12))
-        self.entry_program.grid(row=0, column=1, padx=10, pady=5, sticky=tk.EW)
+        ttk.Label(self.setup_frame, text="Program:", font=(FONT_FAMILY, FONT_SIZE + 2), style="Dark.TLabel").grid(row=0, column=0, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.W)
+        self.entry_program = ttk.Entry(self.setup_frame, font=(FONT_FAMILY, FONT_SIZE), style="Dark.TEntry")
+        self.entry_program.grid(row=0, column=1, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.EW)
 
-        ttk.Label(self.setup_frame, text="Mute Key:", font=("Segoe UI", 14)).grid(row=1, column=0, padx=10, pady=5, sticky=tk.W)
-        self.mute_key_entry = KeyCaptureEntry(self.setup_frame, font=("Segoe UI", 12))
-        self.mute_key_entry.grid(row=1, column=1, padx=10, pady=5, sticky=tk.EW)
+        ttk.Label(self.setup_frame, text="Mute Key:", font=(FONT_FAMILY, FONT_SIZE + 2)).grid(row=1, column=0, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.W)
+        self.mute_key_entry = KeyCaptureEntry(self.setup_frame, font=(FONT_FAMILY, FONT_SIZE))
+        self.mute_key_entry.grid(row=1, column=1, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.EW)
 
-        ttk.Label(self.setup_frame, text="Unmute Key:", font=("Segoe UI", 14)).grid(row=2, column=0, padx=10, pady=5, sticky=tk.W)
-        self.unmute_key_entry = KeyCaptureEntry(self.setup_frame, font=("Segoe UI", 12))
-        self.unmute_key_entry.grid(row=2, column=1, padx=10, pady=5, sticky=tk.EW)
+        ttk.Label(self.setup_frame, text="Unmute Key:", font=(FONT_FAMILY, FONT_SIZE + 2)).grid(row=2, column=0, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.W)
+        self.unmute_key_entry = KeyCaptureEntry(self.setup_frame, font=(FONT_FAMILY, FONT_SIZE))
+        self.unmute_key_entry.grid(row=2, column=1, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.EW)
 
         self.start_button = ttk.Button(self.setup_frame, text="Start", command=self.start_program)
-        self.start_button.grid(row=3, columnspan=2, pady=20, sticky=tk.EW)
+        self.start_button.grid(row=3, columnspan=2, pady=PADDING_LARGE, sticky=tk.EW)
 
         for child in self.setup_frame.winfo_children():
-            child.grid_configure(padx=5, pady=5)
+            child.grid_configure(padx=PADDING_SMALL, pady=PADDING_SMALL)
 
     def start_program(self):
         program = self.entry_program.get()
