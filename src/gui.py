@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import ttk
 from gui_utils.setup_window import SetupWindow
 from gui_utils.running_window import RunningWindow
 from gui_utils.constants import SIZE, TITLE

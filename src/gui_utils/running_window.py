@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from src.key_listener import start_listener
+from src.key_listener import KeyListener
 from gui_utils.constants import *
 
 class RunningWindow:
@@ -38,7 +38,7 @@ class RunningWindow:
         self.tree.insert("", "end", values=("Mute Key", mute_key))
         self.tree.insert("", "end", values=("Unmute Key", unmute_key))
         self.running_frame.pack(padx=PADDING_SMALL, pady=PADDING_SMALL, fill=tk.BOTH, expand=True)
-        self.listener = start_listener(program, mute_key, unmute_key)
+        self.listener = KeyListener(program, mute_key, unmute_key)
 
 
     def stop_program(self):

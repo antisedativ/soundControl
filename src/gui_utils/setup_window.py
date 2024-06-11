@@ -19,9 +19,8 @@ class SetupWindow:
         style.configure(LABEL_STYLE, font=(FONT_FAMILY, FONT_SIZE), foreground=WHITE_COLOR, background=BG_COLOR)
         style.configure(ENTRY_STYLE, font=(FONT_FAMILY, FONT_SIZE), background=INPUT_BG_COLOR, foreground=BLACK_COLOR)
 
-        ttk.Label(self.setup_frame, text="Program:", font=(FONT_FAMILY, FONT_SIZE + 2), style="Dark.TLabel").grid(row=0, column=0, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.W)
-        self.entry_program = ttk.Entry(self.setup_frame, font=(FONT_FAMILY, FONT_SIZE), style="Dark.TEntry")
-        self.entry_program.grid(row=0, column=1, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.EW)
+        self.program_combo = ttk.Combobox(self.setup_frame, values=programs)
+        self.program_combo.grid(row=0, column=1, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.EW)
 
         ttk.Label(self.setup_frame, text="Mute Key:", font=(FONT_FAMILY, FONT_SIZE + 2)).grid(row=1, column=0, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.W)
         self.mute_key_entry = KeyCaptureEntry(self.setup_frame, font=(FONT_FAMILY, FONT_SIZE))

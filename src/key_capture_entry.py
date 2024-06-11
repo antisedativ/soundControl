@@ -20,9 +20,10 @@ class KeyCaptureEntry(ttk.Entry):
             self._listener = None
 
     def on_key_press(self, key):
-        try:
+        if not isinstance(key, keyboard.KeyCode):
             key_name = key.char if hasattr(key, 'char') else key.name
             self.delete(0, tk.END)
             self.insert(0, key_name)
-        except AttributeError:
-            pass
+            return
+        
+        self.delete(0, tk.END)

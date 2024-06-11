@@ -1,23 +1,27 @@
 from pynput import keyboard
 from audio_controller import AudioController
 
-def start_listener(target: str, mute_key, unmute_key):
-    KEY_ACTIONS = {mute_key: True, unmute_key: False}
+class KeyListener:
+    def __init__(self, target: str, mute_key, unmute_key):
+        self.target = target
+        self.key_actions = {mute_key: True, unmute_key: False}
+        self.audio_ctrl = AudioController(target)
+        self.listener = keyboard.Listener(on_press=self.on_press)
+        self.listener.start()
 
-    def mute_program(target: str, mute: bool):
-        audio_ctrl = AudioController(target)
-        audio_ctrl.mute() if mute else audio_ctrl.unmute()
-
-    def on_press(key):
+    def on_press(self, key):
         try:
             key_name = key.char if hasattr(key, 'char') else key.name
-            if key_name in KEY_ACTIONS:
-                mute_program(target, KEY_ACTIONS[key_name])
+            if key_name in self.key_actions:
+                self.mute_program(self.key_actions[key_name])
         except AttributeError:
             pass
 
-    listener = keyboard.Listener(on_press=on_press)
-    listener.start()
+    def mute_program(self, mute: bool):
+        if mute:
+            self.audio_ctrl.mute()
+        else:
+            self.audio_ctrl.unmute()
 
-    # Возвращаем слушателя, чтобы можно было его остановить
-    return listener
+    def stop(self):
+        self.listener.stop()
