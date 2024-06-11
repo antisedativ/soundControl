@@ -54,9 +54,9 @@ Contributions are welcome! If you find a bug or have a suggestion for improvemen
 - **Volume Adjustment Functionality**: Implement features to adjust the volume of the target application, allowing users to increase or decrease the volume as needed.
 - **Enhanced Visual Appearance**: Improve the aesthetics and user interface design to make the application more visually appealing and user-friendly.
 
-## Screenshots
+<!-- ## Screenshots
 
-<!-- <p align="center">
+ <p align="center">
    <img src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/5vtx/Smu8dtD3A" width="600" height="400">
    <img src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/6iAv/M5fHaYBLy" width="600" height="400">
    <img src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/Ywdu/KXe8ctAD9" width="600" height="400">
