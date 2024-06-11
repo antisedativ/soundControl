@@ -1,6 +1,6 @@
 # Sound Control on Key Press
 
-This Python script allows you to control the sound (mute/unmute) of a specific program by pressing certain keys. It can be useful, for example, when you want to quickly mute a program without switching to it.
+This Python script enables you to control the sound (mute/unmute) of a specific program by pressing certain keys. It can be handy, for example, when you need to quickly mute a program without switching to it.
 
 ## How it Works
 
@@ -8,9 +8,9 @@ The script listens for specific key presses using the `pynput` library. When a p
 
 ### < Current Functionality >
 
-- The script is currently configured to work with Google Chrome (`chrome.exe`).
-- Pressing `AltGr` (right Alt) mutes the sound.
-- Pressing `Ctrl_R` (right Ctrl) unmutes the sound.
+- The application allows users to select the target program from a dropdown menu.
+- Users can then assign custom hotkeys for muting and unmuting the selected program.
+- After configuring the hotkeys, users can control the sound (mute/unmute) of the selected program by pressing the assigned keys.
 
 ## Installation
 
@@ -42,6 +42,7 @@ The script listens for specific key presses using the `pynput` library. When a p
 
 - Python 3.x
 - pynput
+- tkinter
 - PyCaw
 
 ## Contributing
@@ -50,6 +51,13 @@ Contributions are welcome! If you find a bug or have a suggestion for improvemen
 
 ### < Possible Improvements >
 
-- **Enable Application Selection**: Add functionality to allow users to select the target application dynamically instead of hardcoding the application name in the script.
-- **Key Reassignment**: Implement the ability to reassign the key combinations used for muting/unmuting the target application through configuration or user input.
-- **User-Friendly Interface**: Develop a simple graphical user interface (GUI) to make the application more accessible and easier to use for non-technical users.
+- **Volume Adjustment Functionality**: Implement features to adjust the volume of the target application, allowing users to increase or decrease the volume as needed.
+- **Enhanced Visual Appearance**: Improve the aesthetics and user interface design to make the application more visually appealing and user-friendly.
+
+## Screenshots
+
+<!-- <p align="center">
+   <img src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/5vtx/Smu8dtD3A" width="600" height="400">
+   <img src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/6iAv/M5fHaYBLy" width="600" height="400">
+   <img src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/Ywdu/KXe8ctAD9" width="600" height="400">
+</p> -->
