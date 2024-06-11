@@ -33,7 +33,7 @@ The script listens for specific key presses using the `pynput` library. When a p
 2. Run the script:
 
     ```bash
-    python main.py
+    python src/main.py
     ```
 
 3. Press the predefined key combination (default: AltGr + Ctrl) to mute/unmute the sound of the specified program.
