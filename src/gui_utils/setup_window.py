@@ -1,9 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
-from key_capture_entry import KeyCaptureEntry
-from audio_controller import AudioController
 from tkinter import messagebox
-from gui_utils.constants import *
+from src.key_capture_entry import KeyCaptureEntry
+from src.audio_controller import AudioController
+from src.gui_utils.constants import *
 
 class SetupWindow:
     def __init__(self, root, running_window):
@@ -22,7 +22,7 @@ class SetupWindow:
         style.configure(ENTRY_STYLE, font=(FONT_FAMILY, FONT_SIZE), background=INPUT_BG_COLOR, foreground=BLACK_COLOR)
 
         ttk.Label(self.setup_frame, text="Program:", font=(FONT_FAMILY, FONT_SIZE + 2)).grid(row=0, column=0, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.W)
-        self.program_combo = ttk.Combobox(self.setup_frame, values=self.sessions, font=(FONT_FAMILY, FONT_SIZE))
+        self.program_combo = ttk.Combobox(self.setup_frame, values=list(self.sessions), font=(FONT_FAMILY, FONT_SIZE))
         self.program_combo.grid(row=0, column=1, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.EW)
 
         ttk.Label(self.setup_frame, text="Mute Key:", font=(FONT_FAMILY, FONT_SIZE + 2)).grid(row=1, column=0, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.W)

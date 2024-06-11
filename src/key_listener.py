@@ -1,5 +1,5 @@
 from pynput import keyboard
-from audio_controller import AudioController
+from src.audio_controller import AudioController
 
 class KeyListener:
     def __init__(self, target: str, mute_key, unmute_key):

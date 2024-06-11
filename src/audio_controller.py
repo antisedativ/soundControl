@@ -21,8 +21,11 @@ class AudioController:
             
 
     def get_sessions(self):
-        process_names = [session.Process.name() for session in self.sessions]
-        return process_names
+        for session in self.sessions:
+            if session.Process:
+                yield session.Process.name()
+            else:
+                print("Found a session with no process")
 
 
     def mute(self):

@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
-from key_listener import KeyListener
-from gui_utils.constants import *
+from src.key_listener import KeyListener
+from src.gui_utils.constants import *
 
 class RunningWindow:
     def __init__(self, root, setup_frame):

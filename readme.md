@@ -33,7 +33,7 @@ The script listens for specific key presses using the `pynput` library. When a p
 2. Run the script:
 
     ```bash
-    python src/main.py
+    python main.py
     ```
 
 3. Press the predefined key combination (default: AltGr + Ctrl) to mute/unmute the sound of the specified program.
@@ -42,7 +42,7 @@ The script listens for specific key presses using the `pynput` library. When a p
 
 4. Run the script:
     ```pytohn
-    pyinstaller --onefile --icon=assets/icon.ico --noconsole --name "Sound Control" src/main.py
+    pyinstaller --onefile --noconsole --name "Sound Control" main.py
     ```
 
 ## Requirements
