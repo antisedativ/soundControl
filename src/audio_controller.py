@@ -22,7 +22,7 @@ class AudioController:
 
     def get_sessions(self):
         for session in self.sessions:
-            if session.Process:
+            if session.ProcessId:
                 yield session.Process.name()
             else:
                 print("Found a session with no process")
