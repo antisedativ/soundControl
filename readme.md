@@ -17,7 +17,7 @@ The script listens for specific key presses using the `pynput` library. When a p
 1. Clone this repository:
 
     ```bash
-    git clone https://github.com/your_username/sound-control-on-key-press.git
+    git clone https://github.com/antisedativ/soundControl.git
     ```
 
 2. Install the required dependencies:
