@@ -45,14 +45,18 @@ class AudioController:
             self.interface.SetMasterVolume(decibels, None)
             print("Volume set to", decibels)
 
-
-    def decrease_volume(self, decibels):
+    def decrease_volume(self):
         if self.interface:
-            self.interface.SetMasterVolume(max(0.0, self.interface.GetMasterVolume() - decibels), None)
-            print("Volume reduced to", self.interface.GetMasterVolume())
+            current_volume = self.interface.GetMasterVolume()
+            decrement = 0.1  
+            new_volume = max(0.0, current_volume - decrement)
+            self.interface.SetMasterVolume(new_volume, None)
+            print("Volume reduced to", new_volume)
 
-
-    def increase_volume(self, decibels):
+    def increase_volume(self):
         if self.interface:
-            self.interface.SetMasterVolume(min(1.0, self.interface.GetMasterVolume() + decibels), None)
-            print("Volume raised to", self.interface.GetMasterVolume())
+            current_volume = self.interface.GetMasterVolume()
+            increment = 0.1  
+            new_volume = min(1.0, current_volume + increment)
+            self.interface.SetMasterVolume(new_volume, None)
+            print("Volume raised to", new_volume)
