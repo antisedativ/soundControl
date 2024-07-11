@@ -22,7 +22,7 @@ class RunningWindow:
         self.label_status = ttk.Label(self.running_frame, text=RUNNING_TEXT, font=(FONT_FAMILY, FONT_SIZE + 2))
         self.label_status.pack(padx=PADDING_MEDIUM, pady=PADDING_MEDIUM)
 
-        self.tree = ttk.Treeview(self.running_frame, columns=("Parameter", "Value"), show="headings", height=3, style="Treeview.Treeview")
+        self.tree = ttk.Treeview(self.running_frame, columns=("Parameter", "Value"), show="headings", height=5, style="Treeview.Treeview")
         self.tree.heading("Parameter", text="Parameter")
         self.tree.heading("Value", text="Value")
         self.tree.pack(padx=PADDING_SMALL, pady=PADDING_SMALL)
@@ -33,12 +33,16 @@ class RunningWindow:
         self.listener = None
 
 
-    def start_program(self, program, mute_key, unmute_key):
+    def start_program(self, program, mute_key, unmute_key, volume_up_key, volume_down_key):
         self.tree.insert("", "end", values=("Program", program))
         self.tree.insert("", "end", values=("Mute Key", mute_key))
         self.tree.insert("", "end", values=("Unmute Key", unmute_key))
+        self.tree.insert("", "end", values=("Volume Up Key", volume_up_key))
+        self.tree.insert("", "end", values=("Volume Down Key", volume_down_key))
+        
+
         self.running_frame.pack(padx=PADDING_SMALL, pady=PADDING_SMALL, fill=tk.BOTH, expand=True)
-        self.listener = KeyListener(program, mute_key, unmute_key)
+        self.listener = KeyListener(program, mute_key, unmute_key, volume_up_key, volume_down_key)
 
 
     def stop_program(self):

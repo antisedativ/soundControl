@@ -1,9 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
-from src.key_capture_entry import KeyCaptureEntry
-from src.audio_controller import AudioController
-from src.gui_utils.constants import *
+from src.key_capture_entry import KeyCaptureEntry  
+
+from src.audio_controller import AudioController  
+from src.gui_utils.constants import * 
 
 class SetupWindow:
     def __init__(self, root, running_window):
@@ -33,8 +34,16 @@ class SetupWindow:
         self.unmute_key_entry = KeyCaptureEntry(self.setup_frame, font=(FONT_FAMILY, FONT_SIZE))
         self.unmute_key_entry.grid(row=2, column=1, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.EW)
 
+        ttk.Label(self.setup_frame, text="Volume Up Key:", font=(FONT_FAMILY, FONT_SIZE + 2)).grid(row=3, column=0, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.W)
+        self.volume_up_key_entry = KeyCaptureEntry(self.setup_frame, font=(FONT_FAMILY, FONT_SIZE))
+        self.volume_up_key_entry.grid(row=3, column=1, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.EW)
+
+        ttk.Label(self.setup_frame, text="Volume Down Key:", font=(FONT_FAMILY, FONT_SIZE + 2)).grid(row=4, column=0, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.W)
+        self.volume_down_key_entry = KeyCaptureEntry(self.setup_frame, font=(FONT_FAMILY, FONT_SIZE))
+        self.volume_down_key_entry.grid(row=4, column=1, padx=PADDING_MEDIUM, pady=PADDING_SMALL, sticky=tk.EW)
+
         self.start_button = ttk.Button(self.setup_frame, text="Start", command=self.start_program)
-        self.start_button.grid(row=3, columnspan=2, pady=PADDING_LARGE, sticky=tk.EW)
+        self.start_button.grid(row=5, columnspan=2, pady=PADDING_LARGE, sticky=tk.EW)
 
         for child in self.setup_frame.winfo_children():
             child.grid_configure(padx=PADDING_SMALL, pady=PADDING_SMALL)
@@ -43,10 +52,12 @@ class SetupWindow:
         program = self.program_combo.get()
         mute_key = self.mute_key_entry.get()
         unmute_key = self.unmute_key_entry.get()
+        volume_up_key = self.volume_up_key_entry.get()
+        volume_down_key = self.volume_down_key_entry.get()
         
-        if not program or not mute_key or not unmute_key:
+        if not program or not mute_key or not unmute_key or not volume_up_key or not volume_down_key:
             messagebox.showerror("Error", "All fields are required!")
             return
         
         self.setup_frame.pack_forget()
-        self.running_window.start_program(program, mute_key, unmute_key)
+        self.running_window.start_program(program, mute_key, unmute_key, volume_up_key, volume_down_key)
